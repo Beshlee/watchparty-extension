@@ -128,5 +128,10 @@ watchparty-extension/
 ├── config.example.js     # Firebase config şablonu (repoya işlenir)
 ├── config.js              # Kendi Firebase DB URL'iniz (.gitignore'da, sizde kalır)
 ├── database.rules.json   # Firebase Realtime Database güvenlik kuralları
+├── LICENSE               # MIT lisansı
 └── README.md
 ```
+
+## Lisans
+
+[MIT](LICENSE)
