@@ -1,0 +1,7 @@
+# Gerçek Firebase DB URL'inizi içerir — repoya işlenmemeli.
+config.js
+
+# İşletim sistemi / editör çöp dosyaları
+Thumbs.db
+desktop.ini
+.DS_Store

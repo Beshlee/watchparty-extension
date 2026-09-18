@@ -1,0 +1,30 @@
+{
+  "rules": {
+    "rooms": {
+      "$roomId": {
+        ".read": "$roomId.length >= 4 && $roomId.length <= 8",
+        ".write": "newData.val() === null",
+
+        "createdAt": {
+          ".write": "!data.exists() && newData.isNumber()"
+        },
+
+        "members": {
+          "$clientId": {
+            ".write": "$clientId.length <= 40 && (newData.val() === null || (newData.hasChildren(['name','lastSeen']) && newData.child('name').isString() && newData.child('name').val().length > 0 && newData.child('name').val().length <= 24 && newData.child('lastSeen').isNumber()))"
+          }
+        },
+
+        "video": {
+          ".write": "newData.hasChildren(['time','playing','ts','by']) && newData.child('time').isNumber() && newData.child('time').val() >= 0 && newData.child('playing').isBoolean() && newData.child('ts').isNumber() && newData.child('by').isString() && newData.child('by').val().length <= 40"
+        },
+
+        "chat": {
+          "$msgId": {
+            ".write": "newData.hasChildren(['name','text','ts','clientId']) && newData.child('name').isString() && newData.child('name').val().length <= 24 && newData.child('text').isString() && newData.child('text').val().length > 0 && newData.child('text').val().length <= 500 && newData.child('ts').isNumber() && newData.child('clientId').isString()"
+          }
+        }
+      }
+    }
+  }
+}
